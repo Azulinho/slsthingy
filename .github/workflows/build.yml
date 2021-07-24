@@ -16,6 +16,7 @@ jobs:
         node-version: [12.x]
 
     steps:
+    if: contains(['scratch0', 'scratch1', 'dev1', 'qa1', 'prod1' ], github.event.inputs.aws_environment)
     - uses: actions/checkout@v2
       with:
         ref: 'main'
