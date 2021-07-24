@@ -11,19 +11,10 @@ provider:
   environment:
     FOOR: "arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:${self:provider.stage}-hello-payment"
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
 functions:
   create:
+    role: stuff123
     handler: todos/create.create
     events:
       - http:
@@ -32,6 +23,7 @@ functions:
           cors: true
 
   list:
+    role: stuff123
     handler: todos/list.list
     events:
       - http:
@@ -40,6 +32,7 @@ functions:
           cors: true
 
   get:
+    role: stuff123
     handler: todos/get.get
     events:
       - http:
@@ -48,6 +41,7 @@ functions:
           cors: true
 
   update:
+    role: stuff123
     handler: todos/update.update
     events:
       - http:
@@ -56,6 +50,7 @@ functions:
           cors: true
 
   delete:
+    role: stuff123
     handler: todos/delete.delete
     events:
       - http:
