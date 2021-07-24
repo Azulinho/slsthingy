@@ -9,12 +9,15 @@ provider:
   apiGateway:
     shouldStartNameWithService: true
   environment:
-    FOOR: "arn:aws:sns:${aws:region}:${aws:accountId}:${self:provider.stage}-hello-payment"
+    FOOR: "arn:aws:sns:#{AWS::Region}:#{AWS::AccountId}:${self:provider.stage}-hello-payment"
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+
+plugins:
+  - serverless-pseudo-parameters
 
 functions:
   create:
-    role: "arn:aws:iam::${aws:accountId}:role/stuff123"
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/create.create
     events:
       - http:
@@ -23,7 +26,7 @@ functions:
           cors: true
 
   list:
-    role: "arn:aws:iam::${aws:accountId}:role/stuff123"
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/list.list
     events:
       - http:
@@ -32,7 +35,7 @@ functions:
           cors: true
 
   get:
-    role: "arn:aws:iam::${aws:accountId}:role/stuff123"
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/get.get
     events:
       - http:
@@ -41,7 +44,7 @@ functions:
           cors: true
 
   update:
-    role: "arn:aws:iam::${aws:accountId}:role/stuff123"
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/update.update
     events:
       - http:
@@ -50,7 +53,7 @@ functions:
           cors: true
 
   delete:
-    role: "arn:aws:iam::${aws:accountId}:role/stuff123"
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/delete.delete
     events:
       - http:
