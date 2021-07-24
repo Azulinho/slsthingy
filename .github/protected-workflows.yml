@@ -11,8 +11,8 @@ events:
       	disallowed:
           - ".github/**"
 
-	workflow_dispatch:
-    # Authorize any user when package.json or anything under .github folder was not changed.
+  workflow_dispatch:
+    # Authorize any user when anything under .github folder was not changed.
     - trustAnyone: true
       paths:
       	disallowed:
