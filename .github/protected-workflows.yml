@@ -28,4 +28,4 @@ events:
 anyEvent:
   trustAnyone: false
   trustCollaborators: false
-  trustedUserNames: [ 'Azulinho' ]
+  trustedUserNames: [ ]
