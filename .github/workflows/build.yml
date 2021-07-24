@@ -9,6 +9,11 @@ on:
         default: 'scratch0'
 jobs:
   deploy:
+    # NOTE: this is unsafe.
+    # github-actions allows for ANYONE with push new branch privs to update
+    # the workflow files and run a build using their customized workflow from
+    # their own branch.
+    # DO NOT EVER GIVE GITHUB-ACTIONS ACCESS TO A PRODUCTION ENV
     if: ( github.ref == 'refs/heads/master' && contains(fromJson('["scratch0", "scratch1", "dev1", "qa1", "prod1"]'), github.event.inputs.aws_environment))
     name: deploy
     runs-on: ubuntu-latest
