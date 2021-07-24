@@ -1,4 +1,5 @@
 name: ManualDeploy
+concurrency: "${{ github.event.inputs.aws_environment }}"
 
 on:
   workflow_dispatch:
