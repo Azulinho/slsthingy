@@ -34,7 +34,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install -g
+      run: |
+        npm install -g serverless
+        npm install -g serverless-pseudo-parameters
 
     - name: Deploy Lambdas
       env:
