@@ -14,7 +14,7 @@ provider:
 
 functions:
   create:
-    role: stuff123
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/create.create
     events:
       - http:
@@ -23,7 +23,7 @@ functions:
           cors: true
 
   list:
-    role: stuff123
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/list.list
     events:
       - http:
@@ -32,7 +32,7 @@ functions:
           cors: true
 
   get:
-    role: stuff123
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/get.get
     events:
       - http:
@@ -41,7 +41,7 @@ functions:
           cors: true
 
   update:
-    role: stuff123
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/update.update
     events:
       - http:
@@ -50,7 +50,7 @@ functions:
           cors: true
 
   delete:
-    role: stuff123
+    role: "arn:aws:iam::#{AWS::AccountId}:role/stuff123"
     handler: todos/delete.delete
     events:
       - http:
