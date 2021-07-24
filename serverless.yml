@@ -30,7 +30,7 @@ functions:
     handler: todos/list.list
     events:
       - http:
-          path: todos
+          path: todos1
           method: get
           cors: true
 
@@ -39,7 +39,7 @@ functions:
     handler: todos/get.get
     events:
       - http:
-          path: todos/{id}
+          path: todos1/{id}
           method: get
           cors: true
 
@@ -48,7 +48,7 @@ functions:
     handler: todos/update.update
     events:
       - http:
-          path: todos/{id}
+          path: todos1/{id}
           method: put
           cors: true
 
@@ -57,7 +57,7 @@ functions:
     handler: todos/delete.delete
     events:
       - http:
-          path: todos/{id}
+          path: todos1/{id}
           method: delete
           cors: true
 
