@@ -18,6 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
+        ref: 'ref/heads/main'
         fetch-depth: 0
 
     - name: Use Node.js ${{ matrix.node-version }}
