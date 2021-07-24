@@ -8,8 +8,8 @@ on:
         required: true
         default: 'scratch0'
 jobs:
-  if: contains([ 'scratch0', 'scratch1', 'dev1', 'qa1', 'prod1' ], github.event.inputs.aws_environment)
   deploy:
+    if: ${{ contains([ 'scratch0', 'scratch1', 'dev1', 'qa1', 'prod1' ], github.event.inputs.aws_environment) }}
     name: deploy
     runs-on: ubuntu-latest
     strategy:
